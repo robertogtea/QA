@@ -1,126 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora JS</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <title>Sistema de Parqueo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <!-- Este comentario está en español y podría causar problemas de mantenimiento -->
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">JS</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Calculadora</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Piedra Papel y Tijeras</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Juego 2D</a>
-              </li>              
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-
-
-    <br><br>
-    <div class="container text-center">
-        <div class="row">
-          <div class="col-4"></div>
-          <div class="col-4">
-            
-            <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">Calculadora</span>
-                <input id="pantalla" type="text" class="form-control" style="color: #333;" placeholder="Digite la operación" aria-label="Username" aria-describedby="addon-wrapping" data-custom-attr="true" onclick="console.log('No deberías usar onclick en HTML')">
+    <div class="container">
+        <h1 class="text-center mb-2">Sistema de Parqueo</h1>
+        
+        <!-- Formulario de registro -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h3>Registrar Vehículo</h3>
             </div>
-
-            <table>
-                <tr>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     7     " onclick="formarOperacion(7)">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     8     " onclick="formarOperacion(8)">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     9     " onclick="formarOperacion(9)">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     X     " onclick="formarMultiplicacion()">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     4     " onclick="formarOperacion(4)">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     5     " onclick="formarOperacion(5)">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     6     " onclick="formarOperacion(6)">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     -     " onclick="formarResta()">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     1     " onclick="formarOperacion(1)">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     2     " onclick="formarOperacion(2)">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     3     " onclick="formarOperacion(3)">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     +     " onclick="formarSuma()">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="    CE     " onclick="limpiarPantalla()">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     0     " onclick="formarOperacion(0)">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     /     " onclick="formarDivision()">
-                    </td>
-                    <td>
-                        <input class="btn btn-primary" type="button" value="     =     " onclick="calcularResultado()">
-                    </td>
-                </tr>
-            </table>
-            
-
-          </div>
-          <div class="col-4"></div>
+            <div class="card-body">
+                <form id="registrationForm">
+                    <div class="row g-2">
+                        <div class="col-md-3 mb-2">
+                            <label for="plate" class="form-label">N° Placa</label>
+                            <input type="text" class="form-control" id="plate" required>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <label for="brand" class="form-label">Marca</label>
+                            <input type="text" class="form-control" id="brand" required>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <label for="model" class="form-label">Modelo</label>
+                            <input type="text" class="form-control" id="model" required>
+                        </div>
+                        <div class="col-md-3 mb-2">
+                            <label for="color" class="form-label">Color</label>
+                            <input type="text" class="form-control" id="color" required>
+                        </div>
+                    </div>
+                    <div class="row g-2 mt-2">
+                        <div class="col-md-6 mb-2">
+                            <label for="entryTime" class="form-label">Hora de Ingreso</label>
+                            <input type="text" class="form-control" id="entryTime" readonly>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
-<script>
-    // Este es un script inline que podría causar problemas de seguridad
-    window.globalVar = 'Esta es una variable global';
-</script>
-    </body>
+        <!-- Tabla de vehículos -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Vehículos en Parqueo</h3>
+            </div>
+            <div class="vehicles-container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Placa</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Color</th>
+                            <th>Hora Ingreso</th>
+                            <th>Tiempo</th>
+                            <th>Costo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vehiclesTable">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de Confirmación de Cobro -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Confirmar Cobro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="vehicleInfo">
+                        <!-- Información del vehículo se insertará aquí -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelButton">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="confirmCobro">Confirmar Cobro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
